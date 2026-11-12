@@ -1,0 +1,47 @@
+{
+  "info": {
+    "name": "Student Management API",
+    "description": "Requests for the Student Management System assignment.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "studentId", "value": "1" }
+  ],
+  "item": [
+    {
+      "name": "Add student",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Aarav Sharma\",\n  \"email\": \"aarav@example.com\",\n  \"course\": \"CSE\",\n  \"age\": 21\n}", "options": { "raw": { "language": "json" } } },
+        "url": "{{baseUrl}}/api/students"
+      }
+    },
+    {
+      "name": "Get all students",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/students" }
+    },
+    {
+      "name": "Get student by ID",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/students/{{studentId}}" }
+    },
+    {
+      "name": "Update student",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Aarav Sharma\",\n  \"email\": \"aarav@example.com\",\n  \"course\": \"Information Technology\",\n  \"age\": 22\n}", "options": { "raw": { "language": "json" } } },
+        "url": "{{baseUrl}}/api/students/{{studentId}}"
+      }
+    },
+    {
+      "name": "Get students by course",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/students/course/CSE" }
+    },
+    {
+      "name": "Delete student",
+      "request": { "method": "DELETE", "url": "{{baseUrl}}/api/students/{{studentId}}" }
+    }
+  ]
+}
